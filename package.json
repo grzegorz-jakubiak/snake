@@ -16,7 +16,11 @@
     },
     "setupFilesAfterEnv": [
       "<rootDir>/tests/setupTests.js"
-    ]
+    ],
+    "moduleDirectories": ["node_modules", "src"]
+  },
+  "standard": {
+    "env": ["jest"]
   },
   "author": "Grzegorz Jakubiak",
   "license": "ISC",
