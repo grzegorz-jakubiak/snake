@@ -3,15 +3,17 @@ import Snake from '../../src/models/snake';
 
 describe('GameOfSnake', () => {
   let expectedBoardSize
+  let game
 
   beforeAll(() => {
     expectedBoardSize = 100
+    game = new GameOfSnake()
   })
 
   it('creates new game', () => {
     const expectedScore = 0
     const expectedSnake = new Array(expectedBoardSize).fill(0).fill(1, 46, 49)
-    const game = new GameOfSnake()
+    game.insertSnake()
 
     expect(game.score).toBe(expectedScore)
     expect(game.board.length).toBe(expectedBoardSize)
@@ -23,10 +25,7 @@ describe('GameOfSnake', () => {
       x: 50,
       y: 12
     })
-
-    const game = new GameOfSnake({
-      snake: snake
-    })
+    game.insertSnake(snake)
     
     const expectedSnake = new Array(expectedBoardSize).fill(0).fill(1, snake.position.x + snake.size)
     expect(game.board[snake.position.y]).toEqual(expect.arrayContaining(expectedSnake))
