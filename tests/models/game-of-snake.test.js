@@ -10,7 +10,7 @@ describe('GameOfSnake', () => {
     game = new GameOfSnake()
   })
 
-  it('creates new game', () => {
+  it('creates new game with empty board', () => {
     const expectedScore = 0
     const expectedSnake = new Array(expectedBoardSize).fill(new Array(expectedBoardSize).fill(0))
 
@@ -21,7 +21,7 @@ describe('GameOfSnake', () => {
 
   it('creates new game with drawn snake', () => {
     const snake = new Snake({
-      boardSize: game.boardSize()
+      boardSize: game.boardSize
     })
     game.drawSnake(snake)
     
