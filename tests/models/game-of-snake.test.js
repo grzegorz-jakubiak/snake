@@ -19,10 +19,9 @@ describe('GameOfSnake', () => {
     expect(game.board).toEqual(expect.arrayContaining(expectedSnake))
   })
 
-  it('creates new game with snake at different position', () => {
+  it('creates new game with drawn snake', () => {
     const snake = new Snake({
-      x: 50,
-      y: 12
+      boardSize: game.boardSize()
     })
     game.drawSnake(snake)
     

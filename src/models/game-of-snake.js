@@ -7,6 +7,10 @@ class GameOfSnake {
     this.score = 0
   }
 
+  boardSize () {
+    return this.board.length
+  }
+
   drawSnake (snake) {
     const { position, size } = snake
     this.board = this.board.map((row, index) => {

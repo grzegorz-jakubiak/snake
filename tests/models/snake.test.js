@@ -8,7 +8,9 @@ describe('Snake', () => {
   let snake
 
   beforeAll(() => {
-    snake = new Snake()
+    snake = new Snake({
+      boardSize: 100
+    })
   })
 
   it('creates new Snake', () => {

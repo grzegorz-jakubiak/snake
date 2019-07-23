@@ -7,12 +7,18 @@ import {
 
 class Snake {
   constructor (params = {}) {
-    this.position = {
-      x: params.x || 46,
-      y: params.y || 49
-    }
-    this.size = params.size || 3
+    this.size = 3
+    this.position = this.calculatePosition(params.boardSize, this.size)
     this.direction = params.direction || DIRECTION_RIGHT
+  }
+
+  calculatePosition (boardSize, size) {
+    const y = boardSize / 2 - 1
+    const x = y - size
+    return {
+      x: x,
+      y: y
+    } 
   }
 
   grow () {
