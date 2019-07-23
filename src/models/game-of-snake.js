@@ -7,7 +7,7 @@ class GameOfSnake {
     this.score = 0
   }
 
-  insertSnake (snake = new Snake()) {
+  drawSnake (snake) {
     const { position, size } = snake
     this.board = this.board.map((row, index) => {
       if (index === position.y) {
