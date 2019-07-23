@@ -1,4 +1,4 @@
-import Example from 'components/Example'
+import Board from 'components/board'
 
 const wrapper = document.getElementById('root')
-ReactDOM.render(<Example />, wrapper)
+ReactDOM.render(<Board />, wrapper)
