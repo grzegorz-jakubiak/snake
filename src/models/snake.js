@@ -6,13 +6,13 @@ import {
 } from 'consts/directions'
 
 class Snake {
-  constructor () {
+  constructor (params = {}) {
     this.position = {
-      x: 46,
-      y: 49
+      x: params.x || 46,
+      y: params.y || 49
     }
-    this.size = 3
-    this.direction = DIRECTION_RIGHT
+    this.size = params.size || 3
+    this.direction = params.direction || DIRECTION_RIGHT
   }
 
   grow () {

@@ -7,7 +7,7 @@ import {
 describe('Snake', () => {
   let snake
 
-  beforeEach(() => {
+  beforeAll(() => {
     snake = new Snake()
   })
 
@@ -18,7 +18,7 @@ describe('Snake', () => {
     }
     const expectedSize = 3
     const expectedDirection = DIRECTION_RIGHT
-
+    
     expect(snake.size).toBe(expectedSize)
     expect(snake.position).toEqual(expectedPosition)
     expect(snake.direction).toBe(expectedDirection)
