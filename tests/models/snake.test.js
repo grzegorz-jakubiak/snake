@@ -15,12 +15,12 @@ describe('Snake', () => {
 
   it('creates new Snake', () => {
     const expectedPosition = {
-      x: 46,
+      x: 49,
       y: 49
     }
     const expectedSize = 3
     const expectedDirection = DIRECTION_RIGHT
-    
+
     expect(snake.size).toBe(expectedSize)
     expect(snake.position).toEqual(expectedPosition)
     expect(snake.direction).toBe(expectedDirection)
