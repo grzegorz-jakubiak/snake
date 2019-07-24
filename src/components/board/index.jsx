@@ -20,10 +20,10 @@ class Board extends React.Component {
     super(props)
     this.state = {
       snake: new Snake({
-        boardSize: 30
+        boardSize: props.boardSize
       }),
       game: new GameOfSnake({
-        boardSize: 30
+        boardSize: props.boardSize
       })
     }
   }

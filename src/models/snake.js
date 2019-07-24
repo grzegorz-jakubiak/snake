@@ -14,7 +14,7 @@ class Snake {
   }
 
   initializePoints (boardSize) {
-    const headX = boardSize / 2 - 1
+    const headX = Math.round(boardSize / 2) - 1
     const headY = headX
 
     return new Array(this.size).fill(0).map((_, index) => {
