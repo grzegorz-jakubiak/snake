@@ -7,7 +7,6 @@ import {
 
 class Snake {
   constructor (params = {}) {
-    this.size = 3
     this.boardSize = params.boardSize
     this.points = this.initializePoints(this.boardSize)
     this.direction = params.direction || DIRECTION_RIGHT
@@ -16,8 +15,9 @@ class Snake {
   initializePoints (boardSize) {
     const headX = Math.round(boardSize / 2) - 1
     const headY = headX
+    const initialSize = 3
 
-    return new Array(this.size).fill(0).map((_, index) => {
+    return new Array(initialSize).fill(0).map((_, index) => {
       return {
         x: headX - index,
         y: headY

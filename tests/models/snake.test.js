@@ -19,10 +19,8 @@ describe('Snake', () => {
       x: 49,
       y: 49
     }
-    const expectedSize = 3
     const expectedDirection = DIRECTION_RIGHT
 
-    expect(snake.size).toBe(expectedSize)
     expect(snake.head()).toEqual(expectedHeadPosition)
     expect(snake.direction).toBe(expectedDirection)
   })
@@ -37,9 +35,7 @@ describe('Snake', () => {
 
   describe('grow', () => {
     it('makes snake grow', () => {
-      const size = snake.size
-      snake.grow()
-      expect(snake.size).toBe(size + 1)
+     
     })
   })
 
