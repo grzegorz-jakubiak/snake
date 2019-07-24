@@ -112,7 +112,6 @@ class Snake {
     return minCoordinate <= coordinate && coordinate <= maxCoordinate
   }
 
-
   changeDirection (direction) {
     switch (this.direction) {
       case DIRECTION_LEFT:

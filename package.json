@@ -47,6 +47,7 @@
     "identity-obj-proxy": "^3.0.0",
     "jest": "^24.8.0",
     "standard": "^13.1.0",
+    "style-loader": "^0.23.1",
     "webpack": "^4.37.0",
     "webpack-cli": "^3.3.6",
     "webpack-dev-server": "^3.7.2"
