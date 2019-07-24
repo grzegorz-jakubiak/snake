@@ -14,7 +14,7 @@ describe('Snake', () => {
   })
 
   it('creates new Snake', () => {
-    const expectedPosition = {
+    const expectedHeadPosition = {
       x: 49,
       y: 49
     }
@@ -22,14 +22,14 @@ describe('Snake', () => {
     const expectedDirection = DIRECTION_RIGHT
 
     expect(snake.size).toBe(expectedSize)
-    expect(snake.position).toEqual(expectedPosition)
+    expect(snake.head()).toEqual(expectedHeadPosition)
     expect(snake.direction).toBe(expectedDirection)
   })
 
   it('moves the snake', () => {
-    const x = snake.position.x
+    const x = snake.head().x
     snake.move()
-    expect(snake.position.x).toBe(x + 1)
+    expect(snake.head().x).toBe(x + 1)
   })
 
   it('makes snake grow', () => {

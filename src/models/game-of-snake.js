@@ -1,5 +1,3 @@
-import Snake from 'models/snake'
-
 class GameOfSnake {
   constructor (params = {}) {
     this.boardSize = params.boardSize || 100
@@ -12,16 +10,16 @@ class GameOfSnake {
   }
 
   drawSnake (snake) {
-    const { position, size } = snake
-    this.board = this.emptyBoard().map((row, index) => {
-      if (index === position.y) {
-        const snakeRow = new Array(...row)
-        snakeRow.fill(1, position.x, position.x + size)
-        return snakeRow
-      }
-
-      return new Array(...row)
+    const { points } = snake
+    const emptyBoard = this.emptyBoard()
+    points.forEach(point => {
+      const { x, y } = point
+      const pointRow = new Array(...emptyBoard[y])
+      pointRow[x] = 1
+      emptyBoard[y] = pointRow
     })
+
+    this.board = emptyBoard
   }
 
   increaseScore () {

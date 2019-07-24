@@ -9,36 +9,61 @@ class Snake {
   constructor (params = {}) {
     this.size = 3
     this.boardSize = params.boardSize
-    this.position = this.calculatePosition(this.boardSize)
+    this.points = this.initializePoints(this.boardSize)
     this.direction = params.direction || DIRECTION_RIGHT
   }
 
-  calculatePosition (boardSize) {
-    const y = boardSize / 2 - 1
-    const x = y
-    return {
-      x: x,
-      y: y
-    }
+  initializePoints (boardSize) {
+    const headX = boardSize / 2 - 1
+    const headY = headX
+
+    return new Array(this.size).fill(0).map((_, index) => {
+      return {
+        x: headX - index,
+        y: headY
+      }
+    })
   }
 
   grow () {
     this.size += 1
   }
 
+  head () {
+    return this.points[0]
+  }
+
   move () {
+    for (let index = this.points.length - 1; index > 0; index--) {
+      this.points[index] = this.points[index - 1]
+    }
+
+    const currentHead = this.points[0]
+
     switch (this.direction) {
       case DIRECTION_LEFT:
-        this.position.x -= 1
+        this.points[0] = {
+          x: currentHead.x - 1,
+          y: currentHead.y
+        }
         break
       case DIRECTION_RIGHT:
-        this.position.x += 1
+        this.points[0] = {
+          x: currentHead.x + 1,
+          y: currentHead.y
+        }
         break
       case DIRECTION_UP:
-        this.position.y -= 1
+        this.points[0] = {
+          x: currentHead.x,
+          y: currentHead.y - 1
+        }
         break
       case DIRECTION_DOWN:
-        this.position.y += 1
+        this.points[0] = {
+          x: currentHead.x,
+          y: currentHead.y + 1
+        }
         break
     }
   }
@@ -47,16 +72,16 @@ class Snake {
     let nextX, nextY
     switch (this.direction) {
       case DIRECTION_LEFT:
-        nextX = this.position.x - 1
+        nextX = this.points[0].x - 1
         return this.areCoordinatesInBoundries(nextX)
       case DIRECTION_RIGHT:
-        nextX = this.position.x + 1
+        nextX = this.points[0].x + 1
         return this.areCoordinatesInBoundries(nextX)
       case DIRECTION_UP:
-        nextY = this.position.y - 1
+        nextY = this.points[0].y - 1
         return this.areCoordinatesInBoundries(nextY)
       case DIRECTION_DOWN:
-        nextY = this.position.y + 1
+        nextY = this.points[0].y + 1
         return this.areCoordinatesInBoundries(nextY)
     }
   }

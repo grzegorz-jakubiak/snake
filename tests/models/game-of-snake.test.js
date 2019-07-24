@@ -1,5 +1,5 @@
 import GameOfSnake from '../../src/models/game-of-snake'
-import Snake from '../../src/models/snake';
+import Snake from '../../src/models/snake'
 
 describe('GameOfSnake', () => {
   let expectedBoardSize
@@ -24,8 +24,8 @@ describe('GameOfSnake', () => {
       boardSize: game.boardSize
     })
     game.drawSnake(snake)
-    
-    const expectedSnake = new Array(expectedBoardSize).fill(0).fill(1, snake.position.x + snake.size)
-    expect(game.board[snake.position.y]).toEqual(expect.arrayContaining(expectedSnake))
+
+    const expectedSnake = new Array(expectedBoardSize).fill(0).fill(1, snake.head().x + snake.size)
+    expect(game.board[snake.head().y]).toEqual(expect.arrayContaining(expectedSnake))
   })
 })
