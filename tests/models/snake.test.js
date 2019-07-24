@@ -1,5 +1,6 @@
 import Snake from '../../src/models/snake'
 import {
+  DIRECTION_LEFT,
   DIRECTION_RIGHT,
   DIRECTION_DOWN
 } from '../../src/consts/directions'
@@ -26,24 +27,37 @@ describe('Snake', () => {
     expect(snake.direction).toBe(expectedDirection)
   })
 
-  it('moves the snake', () => {
-    const x = snake.head().x
-    snake.move()
-    expect(snake.head().x).toBe(x + 1)
+  describe('move', () => {
+    it('moves the snake', () => {
+      const x = snake.head().x
+      snake.move()
+      expect(snake.head().x).toBe(x + 1)
+    })
   })
 
-  it('makes snake grow', () => {
-    const size = snake.size
-    snake.grow()
-    expect(snake.size).toBe(size + 1)
+  describe('grow', () => {
+    it('makes snake grow', () => {
+      const size = snake.size
+      snake.grow()
+      expect(snake.size).toBe(size + 1)
+    })
   })
 
-  it('changes direction', () => {
-    snake.changeDirection(DIRECTION_DOWN)
-    expect(snake.direction).toBe(DIRECTION_DOWN)
+  describe('changeDirection', () => {
+    it('changes direction when allowed direction change', () => {
+      snake.changeDirection(DIRECTION_DOWN)
+      expect(snake.direction).toBe(DIRECTION_DOWN)
+    })
+
+    it('does not changes direction when unallowed direction change', () => {
+      snake.changeDirection(DIRECTION_LEFT)
+      expect(snake.direction).toBe(snake.direction)
+    })
   })
 
-  it('can move', () => {
-    expect(snake.canMove()).toBe(true)
+  describe('canMove', () => {
+    it('can move', () => {
+      expect(snake.canMove()).toBe(true)
+    })
   })
 })

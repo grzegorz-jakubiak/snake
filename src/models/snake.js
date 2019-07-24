@@ -93,7 +93,20 @@ class Snake {
   }
 
   changeDirection (direction) {
-    this.direction = direction
+    switch (this.direction) {
+      case DIRECTION_LEFT:
+      case DIRECTION_RIGHT:
+        if ([DIRECTION_UP, DIRECTION_DOWN].includes(direction)) {
+          this.direction = direction
+        }
+        break
+      case DIRECTION_UP:
+      case DIRECTION_DOWN:
+        if ([DIRECTION_LEFT, DIRECTION_RIGHT].includes(direction)) {
+          this.direction = direction
+        }
+        break
+    }
   }
 }
 
