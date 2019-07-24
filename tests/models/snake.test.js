@@ -42,4 +42,8 @@ describe('Snake', () => {
     snake.changeDirection(DIRECTION_DOWN)
     expect(snake.direction).toBe(DIRECTION_DOWN)
   })
+
+  it('can move', () => {
+    expect(snake.canMove()).toBe(true)
+  })
 })

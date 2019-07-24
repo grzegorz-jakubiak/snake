@@ -8,7 +8,8 @@ import {
 class Snake {
   constructor (params = {}) {
     this.size = 3
-    this.position = this.calculatePosition(params.boardSize, this.size)
+    this.boardSize = params.boardSize
+    this.position = this.calculatePosition(this.boardSize, this.size)
     this.direction = params.direction || DIRECTION_RIGHT
   }
 
@@ -40,6 +41,23 @@ class Snake {
         this.position.y -= 1
         break
     }
+  }
+
+  canMove () {
+    switch (this.direction) {
+      case DIRECTION_LEFT:
+      case DIRECTION_RIGHT:
+        return this.areCoordinatesInBoundries(this.position.x)
+      case DIRECTION_UP:
+      case DIRECTION_DOWN:
+        return this.areCoordinatesInBoundries(this.position.y)  
+    }
+  }
+
+  areCoordinatesInBoundries (coordinate) {
+    const minCoordinate = 0
+    const maxCoordinate = this.boardSize - 1
+    return minCoordinate <= coordinate - 1 && coordinate + 1 <= maxCoordinate
   }
 
   changeDirection (direction) {
