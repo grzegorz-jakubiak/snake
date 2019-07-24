@@ -68,20 +68,40 @@ class Snake {
     }
   }
 
+  didCollidedWithItSelf () {
+    let collided = false
+
+    for (let index = this.points.length - 1; index > 0; index--) {
+      const currentElement = this.points[index]
+      if (this.points.length > 4 && this.head().x === currentElement.x && this.head().y === currentElement.y) {
+        collided = true
+        break
+      }
+    }
+
+    return collided
+  }
+
   canMove () {
     let nextX, nextY
+    const head = this.head()
+
+    if (this.didCollidedWithItSelf()) {
+      return false
+    }
+
     switch (this.direction) {
       case DIRECTION_LEFT:
-        nextX = this.points[0].x - 1
+        nextX = head.x - 1
         return this.areCoordinatesInBoundries(nextX)
       case DIRECTION_RIGHT:
-        nextX = this.points[0].x + 1
+        nextX = head.x + 1
         return this.areCoordinatesInBoundries(nextX)
       case DIRECTION_UP:
-        nextY = this.points[0].y - 1
+        nextY = head.y - 1
         return this.areCoordinatesInBoundries(nextY)
       case DIRECTION_DOWN:
-        nextY = this.points[0].y + 1
+        nextY = head.y + 1
         return this.areCoordinatesInBoundries(nextY)
     }
   }
@@ -91,6 +111,7 @@ class Snake {
     const maxCoordinate = this.boardSize - 1
     return minCoordinate <= coordinate && coordinate <= maxCoordinate
   }
+
 
   changeDirection (direction) {
     switch (this.direction) {
