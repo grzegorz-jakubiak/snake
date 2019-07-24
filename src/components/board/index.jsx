@@ -1,5 +1,6 @@
 import GameOfSnake from 'models/game-of-snake'
 import Snake from 'models/snake'
+import Apple from 'models/apple'
 import {
   ARROW_LEFT,
   ARROW_RIGHT,
@@ -24,7 +25,8 @@ class Board extends React.Component {
       }),
       game: new GameOfSnake({
         boardSize: props.boardSize
-      })
+      }),
+      apple: new Apple()
     }
   }
 
@@ -73,7 +75,10 @@ class Board extends React.Component {
       const row = rows.map(row => {
         if (row === 1) {
           return <td key={uuid3()} className='snake'></td>
-        } else {
+        } else if (row === 2) {
+          return <td key={uuid3()} className='apple'></td>
+        }  
+        else {
           return <td key={uuid3()}></td>
         }
       })
@@ -83,8 +88,8 @@ class Board extends React.Component {
   }
 
   render () {
-    const { game, snake } = this.state
-    game.drawSnake(snake)
+    const { game, snake, apple } = this.state
+    game.draw(snake, apple)
 
     return (
       <table>

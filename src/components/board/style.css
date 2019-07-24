@@ -10,3 +10,13 @@ table td {
 table td.snake {
   background-color: black;
 }
+
+table td.apple::before {
+  display: block;
+  content: '';
+  width: 15px;
+  height: 15px;
+  background-color: black;
+  transform: rotate(45deg);
+  margin: 0 auto;
+}

@@ -9,17 +9,22 @@ class GameOfSnake {
     return new Array(this.boardSize).fill(new Array(this.boardSize).fill(0))
   }
 
-  drawSnake (snake) {
+  draw (snake, apple) {
     const { points } = snake
-    const emptyBoard = this.emptyBoard()
+    const newBoard = this.emptyBoard()
     points.forEach(point => {
       const { x, y } = point
-      const pointRow = new Array(...emptyBoard[y])
+      const pointRow = new Array(...newBoard[y])
       pointRow[x] = 1
-      emptyBoard[y] = pointRow
+      newBoard[y] = pointRow
     })
 
-    this.board = emptyBoard
+    const { x, y } = apple
+    const appleRow = new Array(...newBoard[y])
+    appleRow[x] = 2
+    newBoard[y] = appleRow
+
+    this.board = newBoard
   }
 
   increaseScore () {
