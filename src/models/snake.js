@@ -7,12 +7,12 @@ import {
 
 class Snake {
   constructor (params = {}) {
-    this.boardSize = params.boardSize
-    this.points = this.initializePoints(this.boardSize)
+    this.points = this.initializePoints()
     this.direction = params.direction || DIRECTION_RIGHT
   }
 
-  initializePoints (boardSize) {
+  initializePoints () {
+    const boardSize = 25
     const headX = Math.round(boardSize / 2) - 1
     const headY = headX
     const initialSize = 3
@@ -89,36 +89,6 @@ class Snake {
     }
 
     return collided
-  }
-
-  canMove () {
-    let nextX, nextY
-    const head = this.head()
-
-    if (this.didCollidedWithItSelf()) {
-      return false
-    }
-
-    switch (this.direction) {
-      case DIRECTION_LEFT:
-        nextX = head.x - 1
-        return this.areCoordinatesInBoundries(nextX)
-      case DIRECTION_RIGHT:
-        nextX = head.x + 1
-        return this.areCoordinatesInBoundries(nextX)
-      case DIRECTION_UP:
-        nextY = head.y - 1
-        return this.areCoordinatesInBoundries(nextY)
-      case DIRECTION_DOWN:
-        nextY = head.y + 1
-        return this.areCoordinatesInBoundries(nextY)
-    }
-  }
-
-  areCoordinatesInBoundries (coordinate) {
-    const minCoordinate = 0
-    const maxCoordinate = this.boardSize - 1
-    return minCoordinate <= coordinate && coordinate <= maxCoordinate
   }
 
   changeDirection (direction) {

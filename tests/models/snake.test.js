@@ -9,15 +9,13 @@ describe('Snake', () => {
   let snake
 
   beforeAll(() => {
-    snake = new Snake({
-      boardSize: 100
-    })
+    snake = new Snake()
   })
 
   it('creates new Snake', () => {
     const expectedHeadPosition = {
-      x: 49,
-      y: 49
+      x: 12,
+      y: 12
     }
     const expectedDirection = DIRECTION_RIGHT
 
@@ -33,12 +31,6 @@ describe('Snake', () => {
     })
   })
 
-  describe('grow', () => {
-    it('makes snake grow', () => {
-     
-    })
-  })
-
   describe('changeDirection', () => {
     it('changes direction when allowed direction change', () => {
       snake.changeDirection(DIRECTION_DOWN)
@@ -48,12 +40,6 @@ describe('Snake', () => {
     it('does not changes direction when unallowed direction change', () => {
       snake.changeDirection(DIRECTION_LEFT)
       expect(snake.direction).toBe(snake.direction)
-    })
-  })
-
-  describe('canMove', () => {
-    it('can move', () => {
-      expect(snake.canMove()).toBe(true)
     })
   })
 })
