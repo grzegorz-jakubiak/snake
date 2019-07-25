@@ -1,18 +1,7 @@
 import GameOfSnake from 'models/game-of-snake'
 import Snake from 'models/snake'
 import Apple from 'models/apple'
-import {
-  ARROW_LEFT,
-  ARROW_RIGHT,
-  ARROW_UP,
-  ARROW_DOWN
-} from 'consts/controls'
-import {
-  DIRECTION_LEFT,
-  DIRECTION_RIGHT,
-  DIRECTION_UP,
-  DIRECTION_DOWN
-} from 'consts/directions'
+import InputControler from 'components/input-controler'
 import uuid3 from 'uuid'
 import './style.css'
 
@@ -20,58 +9,38 @@ class Board extends React.Component {
   constructor (props) {
     super(props)
     this.state = {
-      snake: new Snake({
-        boardSize: props.boardSize
-      }),
       game: new GameOfSnake({
-        boardSize: props.boardSize
-      }),
-      apple: new Apple()
+        snake: new Snake(),
+        apple: new Apple()
+      })
     }
   }
 
-  componentDidMount () {
-    const { snake } = this.state
-    this.interval = setInterval(() => {
-      if (!snake.canMove()) {
-        clearInterval(this.interval)
-        return
-      }
+  newGame () {
+    const { game } = this.state
+    if (game.gameOver) {
+      clearInterval(this.interval)
+      return
+    }
+    game.play()
 
-      snake.move()
-      this.setState({
-        snake: snake
-      })
-    }, 1000)
-
-    document.addEventListener('keydown', event => {
-      this.changeDirection(event, snake)
+    this.setState({
+      game: game
     })
+  }
+
+  componentDidMount () {
+    this.interval = setInterval(() => {
+      this.newGame()
+    }, 200)
   }
 
   componentWillUnmount () {
     clearInterval(this.interval)
   }
 
-  changeDirection (event, snake) {
-    switch (event.keyCode) {
-      case ARROW_UP:
-        snake.changeDirection(DIRECTION_UP)
-        break
-      case ARROW_DOWN:
-        snake.changeDirection(DIRECTION_DOWN)
-        break
-      case ARROW_LEFT:
-        snake.changeDirection(DIRECTION_LEFT)
-        break
-      case ARROW_RIGHT: 
-        snake.changeDirection(DIRECTION_RIGHT)
-        break
-    }
-  }
-
-  draw (game) {
-    return game.board.map(rows => {
+  draw (board) {
+    return board.map(rows => {
       const row = rows.map(row => {
         if (row === 1) {
           return <td key={uuid3()} className='snake'></td>
@@ -88,15 +57,17 @@ class Board extends React.Component {
   }
 
   render () {
-    const { game, snake, apple } = this.state
-    game.draw(snake, apple)
+    const { game } = this.state
 
     return (
-      <table>
-        <tbody>
-          {this.draw(game)}
-        </tbody>
-      </table>
+      <InputControler snake={game.snake}>
+        <span>Score: {game.score}</span>
+        <table>
+          <tbody>
+            {this.draw(game.board)}
+          </tbody>
+        </table>
+      </InputControler>
     )
   }
 }
