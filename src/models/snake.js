@@ -25,12 +25,21 @@ class Snake {
     })
   }
 
-  grow () {
-    this.size += 1
-  }
+  eatApple () {
+    const { x, y } = this.tail()
+    this.points.push({
+      x: x,
+      y: y
+    })
+  }  
 
   head () {
     return this.points[0]
+  }
+
+  tail () {
+    const lastIndex = this.points.length - 1
+    return this.points[lastIndex]
   }
 
   move () {
