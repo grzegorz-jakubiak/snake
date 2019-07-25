@@ -1,7 +1,12 @@
 class Apple {
-  constructor (params = {}) {
-    this.x = params.x || Math.floor(Math.random() * (params.boardSize || 100))
-    this.y = params.y || Math.floor(Math.random() * (params.boardSize || 100))
+  constructor () {
+    this.placeApple()
+  }
+
+  placeApple () {
+    const boardSize = 25
+    this.x = Math.floor(Math.random() * boardSize)
+    this.y = Math.floor(Math.random() * boardSize)
   }
 }
 
