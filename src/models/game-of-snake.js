@@ -27,6 +27,15 @@ class GameOfSnake {
     this.board = newBoard
   }
 
+  checkApple (snake, apple) {
+    const { x: appleX, y: appleY } = apple
+    if (snake.head().x === appleX && snake.head().y === appleY) {
+      return true
+    } else {
+      return false
+    }
+  }
+
   increaseScore () {
     this.score += 1
   }
