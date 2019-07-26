@@ -35,7 +35,7 @@ class GameOfSnake {
     const minCoordinate = 0
     const maxCoordinate = this.boardSize - 1
     let collision = false
-    
+
     if (this.snake.didCollidedWithItSelf()) {
       collision = true
     }
@@ -69,7 +69,7 @@ class GameOfSnake {
       this.gameOver = true
       return
     }
-    
+
     if (this.checkApple()) {
       this.snake.eatApple()
       this.apple.placeApple()

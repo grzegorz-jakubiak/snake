@@ -31,7 +31,7 @@ class Snake {
       x: x,
       y: y
     })
-  }  
+  }
 
   head () {
     return this.points[0]
