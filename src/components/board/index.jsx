@@ -2,6 +2,7 @@ import GameOfSnake from 'models/game-of-snake'
 import Snake from 'models/snake'
 import Apple from 'models/apple'
 import InputControler from 'components/input-controler'
+import Score from 'components/score'
 import uuid3 from 'uuid'
 import './style.css'
 
@@ -61,12 +62,14 @@ class Board extends React.Component {
 
     return (
       <InputControler snake={game.snake}>
-        <span>Score: {game.score}</span>
-        <table>
-          <tbody>
-            {this.draw(game.board)}
-          </tbody>
-        </table>
+        <div className='board-wrapper'>
+          <table>
+            <tbody>
+              {this.draw(game.board)}
+            </tbody>
+          </table>
+          <Score score={game.score} />
+        </div>
       </InputControler>
     )
   }

@@ -1,5 +1,9 @@
-table {
+.board-wrapper {
+  width: 1000px;
   margin: 0 auto;
+}
+
+table {
   border: 1px solid black;
 }
 
