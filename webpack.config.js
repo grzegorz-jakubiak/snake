@@ -24,6 +24,18 @@ module.exports = {
       {
         test: /\.css$/i,
         use: [MiniCssExtractPlugin.loader, 'css-loader']
+      },
+      {
+        test: /\.(woff(2)?|ttf|eot|svg)(\?v=\d+\.\d+\.\d+)?$/,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              name: '[name].[ext]',
+              outputPath: 'fonts/'
+            }
+          }
+        ]
       }
     ]
   },
@@ -31,7 +43,8 @@ module.exports = {
     alias: {
       components: path.resolve(__dirname, 'src/components'),
       models: path.resolve(__dirname, 'src/models'),
-      consts: path.resolve(__dirname, 'src/consts')
+      consts: path.resolve(__dirname, 'src/consts'),
+      assets: path.resolve(__dirname, 'src/assets')
     },
     extensions: ['.js', '.jsx']
   },

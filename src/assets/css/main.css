@@ -1,0 +1,9 @@
+@font-face {
+  font-family: 'NokiaFont';
+  src: url('../fonts/nokiafc22.ttf')  format('truetype');
+}
+
+body {
+  background-color: #83B799;
+  font-family: 'NokiaFont';
+}
