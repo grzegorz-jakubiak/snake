@@ -3,6 +3,7 @@ import Snake from 'models/snake'
 import Apple from 'models/apple'
 import InputControler from 'components/input-controler'
 import Score from 'components/score'
+import GameOver from 'components/game-over'
 import uuid3 from 'uuid'
 import './style.css'
 
@@ -63,6 +64,7 @@ class Board extends React.Component {
     return (
       <InputControler snake={game.snake}>
         <div className='board-wrapper'>
+          { game.gameOver ? <GameOver /> : '' }
           <table>
             <tbody>
               {this.draw(game.board)}
