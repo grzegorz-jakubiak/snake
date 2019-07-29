@@ -1,0 +1,52 @@
+.score-container {
+  margin-top: 15px;
+}
+
+.score-container .score {
+  font-size: 25px;
+}
+.game-over {
+  text-align: center;
+  width: 854px;
+  font-size: 250%;
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  top: 427px;
+}
+.board-wrapper {
+  width: 1000px;
+  margin: 0 auto;
+}
+
+table {
+  border: 1px solid black;
+}
+
+table td {
+  width: 30px;
+  height: 30px;
+}
+
+table td.snake {
+  background-color: black;
+}
+
+table td.apple::before {
+  display: block;
+  content: '';
+  width: 15px;
+  height: 15px;
+  background-color: black;
+  transform: rotate(45deg);
+  margin: 0 auto;
+}
+@font-face {
+  font-family: 'NokiaFont';
+  src: url(fonts/nokiafc22.ttf)  format('truetype');
+}
+
+body {
+  background-color: #83B799;
+  font-family: 'NokiaFont';
+}
