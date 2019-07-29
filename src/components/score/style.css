@@ -1,0 +1,7 @@
+.score-container {
+  margin-top: 15px;
+}
+
+.score-container .score {
+  font-size: 25px;
+}

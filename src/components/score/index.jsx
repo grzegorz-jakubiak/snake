@@ -1,7 +1,9 @@
+import './style.css'
+
 const Score = (props) => {
   return (
-    <div>
-      <span>Score: {props.score}</span>
+    <div className='score-container'>
+      <span className='score'>Score: {props.score}</span>
     </div>
   )
 }
