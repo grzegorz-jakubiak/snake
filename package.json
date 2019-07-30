@@ -29,7 +29,7 @@
     ]
   },
   "author": "Grzegorz Jakubiak",
-  "homepage":"https://grzegorz-jakubiak.github.io/snake",
+  "homepage": "https://grzegorz-jakubiak.github.io/snake",
   "license": "ISC",
   "dependencies": {
     "react": "^16.8.6",
