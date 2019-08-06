@@ -64,7 +64,7 @@ class Board extends React.Component {
     return (
       <InputControler snake={game.snake}>
         <div className='board-wrapper'>
-          { game.gameOver ? <GameOver /> : '' }
+          <GameOver isOver={game.gameOver} />
           <table>
             <tbody>
               {this.draw(game.board)}
