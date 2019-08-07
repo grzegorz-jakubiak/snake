@@ -1,9 +1,9 @@
 .game-over {
   text-align: center;
-  width: 854px;
   font-size: 250%;
   margin: 0;
   padding: 0;
+  width: 100%;
   position: absolute;
-  top: 427px;
+  top: 50%;
 }

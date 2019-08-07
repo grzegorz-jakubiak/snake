@@ -1,5 +1,5 @@
-import Board from 'components/board'
+import Game from 'components/game'
 import 'assets/css/main.css'
 
 const wrapper = document.getElementById('root')
-ReactDOM.render(<Board />, wrapper)
+ReactDOM.render(<Game />, wrapper)
