@@ -48,7 +48,9 @@ class Game extends React.Component {
         <InputControler snake={game.snake}>
           <div className='game'>
             <div className='game-top'>
-              <GameOver isOver={game.gameOver} />
+              <div className='game-messages'>
+                <GameOver isOver={game.gameOver} />
+              </div>
               <Board board={game.board} />
             </div>
             <Score score={game.score} />
