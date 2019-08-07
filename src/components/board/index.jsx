@@ -2,6 +2,18 @@ import uuid3 from 'uuid'
 import './style.css'
 
 class Board extends React.Component {
+  componentDidMount () {
+    this.setHeight()
+    window.onresize = () => {
+      this.setHeight()
+    }
+  }
+
+  setHeight () {
+    const boardWrapper = document.querySelector('.board-wrapper')
+    boardWrapper.style.height = `${boardWrapper.clientWidth}px`
+  }
+
   draw (board) {
     return board.map(rows => {
       const row = rows.map(row => {
