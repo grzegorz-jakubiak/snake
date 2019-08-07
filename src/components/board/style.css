@@ -1,15 +1,17 @@
 .board-wrapper {
   width: 100%;
+  height: 1000px;
 }
 
 table {
   width: 100%;
+  height: 100%;
   border: 1px solid black;
 }
 
 table td {
-  width: 30px;
-  height: 30px;
+  width: 4%;
+  height: 4%;
 }
 
 table td.snake {
@@ -19,8 +21,8 @@ table td.snake {
 table td.apple::before {
   display: block;
   content: '';
-  width: 15px;
-  height: 15px;
+  width: 50%;
+  height: 50%;
   background-color: black;
   transform: rotate(45deg);
   margin: 0 auto;
