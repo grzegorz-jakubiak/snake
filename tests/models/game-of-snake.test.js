@@ -3,12 +3,16 @@ import Snake from '../../src/models/snake'
 import Apple from '../../src/models/apple'
 
 describe('GameOfSnake', () => {
-  let expectedBoardSize
-  let game
+  let expectedBoardSize, game, snake, apple
 
   beforeAll(() => {
-    expectedBoardSize = 100
-    game = new GameOfSnake()
+    expectedBoardSize = 25
+    snake = new Snake()
+    apple = new Apple()
+    game = new GameOfSnake({
+      apple: apple,
+      snake: snake
+    })
   })
 
   it('creates new game with empty board', () => {
@@ -21,14 +25,8 @@ describe('GameOfSnake', () => {
   })
 
   it('creates new game with drawn snake', () => {
-    const snake = new Snake({
-      boardSize: game.boardSize
-    })
-    const apple = new Apple({
-      x: 5,
-      y: 3
-    })
-    game.draw(snake, apple)
+    
+    game.draw()
 
     const expectedSnake = new Array(expectedBoardSize).fill(0).fill(1, snake.head().x + 3)
     const expectedApple = new Array(expectedBoardSize).fill(0).fill(2, apple.x, apple.x + 1)
