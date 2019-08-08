@@ -3,8 +3,11 @@
   src: url('../fonts/nokiafc22.ttf')  format('truetype');
 }
 
+* {
+  font-family: 'NokiaFont';
+}
+
 body {
   background-color: #83B799;
-  font-family: 'NokiaFont';
   font-size: 2vw;
 }
