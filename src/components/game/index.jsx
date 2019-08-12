@@ -2,6 +2,7 @@ import Board from 'components/board'
 import InputControler from 'components/input-controler'
 import Score from 'components/score'
 import GameOver from 'components/game-over'
+import Menu from 'components/menu'
 import GameOfSnake from 'models/game-of-snake'
 import Snake from 'models/snake'
 import Apple from 'models/apple'
@@ -16,25 +17,23 @@ class Game extends React.Component {
         apple: new Apple()
       })
     }
+
+    this.newGame = this.newGame.bind(this)
   }
 
   newGame () {
-    const { game } = this.state
-    if (game.gameOver) {
-      clearInterval(this.interval)
-      return
-    }
-    game.play()
-
-    this.setState({
-      game: game
-    })
-  }
-
-  componentDidMount () {
     this.interval = setInterval(() => {
-      this.newGame()
-    }, 200)
+      const { game } = this.state
+      if (game.gameOver) {
+        clearInterval(this.interval)
+        return
+      }
+      game.play()
+
+      this.setState({
+        game: game
+      })
+    }, 300)
   }
 
   componentWillUnmount () {
@@ -49,6 +48,7 @@ class Game extends React.Component {
           <div className='game'>
             <div className='game-top'>
               <div className='game-messages'>
+                <Menu onClick={this.newGame}/>
                 <GameOver isOver={game.gameOver} />
               </div>
               <Board board={game.board} />
