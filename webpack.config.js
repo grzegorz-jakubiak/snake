@@ -53,7 +53,8 @@ module.exports = {
       components: path.resolve(__dirname, 'src/components'),
       models: path.resolve(__dirname, 'src/models'),
       consts: path.resolve(__dirname, 'src/consts'),
-      assets: path.resolve(__dirname, 'src/assets')
+      assets: path.resolve(__dirname, 'src/assets'),
+      handlers: path.resolve(__dirname, 'src/handlers')
     },
     extensions: ['.js', '.jsx']
   },

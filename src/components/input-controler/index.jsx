@@ -10,16 +10,22 @@ import {
   DIRECTION_UP,
   DIRECTION_DOWN
 } from 'consts/directions'
+import swipe from 'handlers/swipe'
 
 class InputControler extends React.Component {
   componentDidMount () {
     document.addEventListener('keydown', event => {
-      const { snake } = this.props
-      this.changeDirection(event, snake)
+      this.changeDirection(event)
+    })
+    const board = document.querySelector('table')
+    swipe(board, (event) => {
+      this.changeDirection(event)
     })
   }
 
-  changeDirection (event, snake) {
+  changeDirection (event) {
+    const { snake } = this.props
+
     switch (event.keyCode) {
       case ARROW_UP:
         snake.changeDirection(DIRECTION_UP)
