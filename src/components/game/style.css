@@ -11,7 +11,11 @@
 }
 
 .game-messages {
+  margin: 0 auto;
+  left: 0;
+  right: 0;
   position: absolute;
   top: 50%;
-  width: 100%;
+  max-width: 500px;
+  transform: translateY(-50%)
 }
