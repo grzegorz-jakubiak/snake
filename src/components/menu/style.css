@@ -1,0 +1,24 @@
+.game-menu {
+  border: 1px solid black;
+  border-radius: 10px;
+  text-align: center;
+  padding: 15px;
+}
+
+.game-menu .menu-header h1 {
+  padding: 0;
+  margin: 0;
+}
+
+.game-menu .game-actions .play {
+  background: transparent;
+  padding: 10px;
+  border-radius: 10px;
+  font-size: 2vw;
+  border-style: outset;
+}
+
+.game-menu .game-actions .play:hover {
+  border-style: inset;
+  cursor: pointer;
+}
