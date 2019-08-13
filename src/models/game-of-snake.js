@@ -72,7 +72,7 @@ class GameOfSnake {
 
     if (this.checkApple()) {
       this.snake.eatApple()
-      this.apple.placeApple()
+      this.apple.placeApple(this.snake.points)
       this.increaseScore()
     }
   }
