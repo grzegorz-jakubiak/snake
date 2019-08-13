@@ -23,6 +23,13 @@ describe('Snake', () => {
     expect(snake.direction).toBe(expectedDirection)
   })
 
+  describe('size', () => {
+    it('returns snake size', () => {
+      const expectedSize = 3
+      expect(snake.size()).toBe(expectedSize)
+    })
+  })
+
   describe('move', () => {
     it('moves the snake', () => {
       const x = snake.head().x

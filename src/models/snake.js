@@ -25,6 +25,10 @@ class Snake {
     })
   }
 
+  size () {
+    return this.points.length
+  }
+
   eatApple () {
     const { x, y } = this.tail()
     this.points.push({
